@@ -19,7 +19,8 @@ def rec(idx, bal):
         return
 
     a[idx] = '('
-    rec(idx + 1, bal + 1)
+    if bal < n*2 - idx: # check can we go further in or not
+        rec(idx + 1, bal + 1)
     if bal == 0:
         return
     a[idx] = ')'
