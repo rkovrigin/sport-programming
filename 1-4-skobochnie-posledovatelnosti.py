@@ -10,8 +10,19 @@ def correct(s):
             return False
     return bal == 0
 
-print(correct('()'))
-print(correct('(()'))
-print(correct(')('))
-print(correct(')()'))
-print(correct('((()))(()())'))
+n = 3
+a = [''] * n * 2
+def rec(idx, bal):
+    if idx == n * 2:
+        if bal == 0:
+            print(a), correct(''.join(a))
+        return
+
+    a[idx] = '('
+    rec(idx + 1, bal + 1)
+    if bal == 0:
+        return
+    a[idx] = ')'
+    rec(idx + 1, bal - 1)
+
+rec(0, 0)
