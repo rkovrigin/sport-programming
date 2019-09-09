@@ -5,9 +5,6 @@ def correct(s):
             bal += 1
         elif c == ')':
             bal -= 1
-        else:
-            print('Bad symbol', c)
-            return False
 
         if bal < 0:
             return False
