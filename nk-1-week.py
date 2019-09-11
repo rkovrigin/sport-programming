@@ -3,14 +3,14 @@ from datetime import datetime
 requiredIdx = None
 
 def rec(idx, n, m, res):
-    # global requiredIdx​
+    global requiredIdx
     if m < 0: return
     if idx == n:
-    #     if m == 0:
-    #         pass
-    #         requiredIdx -= 1
-    #         if requiredIdx == 0:
-    #             print ("".join(res))
+        if m == 0:
+            pass
+            requiredIdx -= 1
+            if requiredIdx == 0:
+                print ("".join(res))
         return
 
     for i in "*.":

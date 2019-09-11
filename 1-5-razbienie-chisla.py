@@ -1,7 +1,7 @@
 n = 35
+out_index = 13672
 a = [0] * n
 index = 1
-out_index = 13672
 
 def rec(idx, sum, last):
     global index

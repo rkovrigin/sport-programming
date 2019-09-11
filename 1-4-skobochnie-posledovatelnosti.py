@@ -27,5 +27,10 @@ def rec(idx, bal):
     rec(idx + 1, bal - 1)
 
 # rec(0, 0)
-s = "(())(())()"
-print(s, correct(s))
+ss = ["((())())))",
+"(()))((())",
+"((((())))",
+"(()())(())",
+"(())(())()"]
+for s in ss:
+    print(s, correct(s))

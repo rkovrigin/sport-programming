@@ -1,9 +1,9 @@
-n = 4
-m = 2
-
+n = 6
+m = 5
+out_index = 6659
 a = [0] * n
 index = 1
-out_index = 3
+
 
 def rec(idx):
     global index
@@ -11,7 +11,7 @@ def rec(idx):
         if index == out_index:
             print (a, index)
         index += 1
-        print(a)
+        # print(a)
         return
     for i in range(1, m + 1):
         a[idx] = i

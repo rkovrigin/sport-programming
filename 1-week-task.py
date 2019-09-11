@@ -1,11 +1,10 @@
 from datetime import datetime
 
 
-n = 25
-m = 8
-out = 24008
+n, m, out = 25, 8, 24008
+# n, m, out = 7, 3, 7
 p = [''] * (n+1)
-cur_index = -1
+cur_index = 1
 
 def rec(idx, m, last):
     if m < 0:
@@ -29,12 +28,12 @@ def rec2(idx, m, out_index=-1):
     if idx == n + 1:
         if m == 0:
             pass
-            # if out_index == -1:
-            #     print(''.join(p[1:]))
-            # elif cur_index == out_index:
-            #     print(' '.join(p[1:]))
-            #     print(''.join(p[1:]))
-            # cur_index += 1
+            if out_index == -1:
+                print(''.join(p[1:]))
+            elif cur_index == out_index:
+                print(' '.join(p[1:]))
+                print(''.join(p[1:]))
+            cur_index += 1
         return
     for i in '*.':
         p[idx] = i
