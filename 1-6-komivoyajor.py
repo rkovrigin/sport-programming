@@ -25,3 +25,4 @@ def rec(idx, len):
 
 p[0] = 0
 rec(1, 0)
+print(ans)
