@@ -26,4 +26,6 @@ def rec(idx, bal):
     a[idx] = ')'
     rec(idx + 1, bal - 1)
 
-rec(0, 0)
+# rec(0, 0)
+s = "(())(())()"
+print(s, correct(s))
