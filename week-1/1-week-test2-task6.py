@@ -10,28 +10,23 @@ s = [
 "([())]"]
 
 def check_line(line):
-    a = 0
-    b = 0
+    s = []
     for i in range(len(line)):
         c = line[i]
-        if c == '(':
-            a += 1
-        elif c == ')':
-            a -= 1
-        elif c == '[':
-            b += 1
-        elif c == ']':
-            b -= 1
-
-        if i > 0:
-            if line[i] == ')' and line[i - 1] == '[':
+        if c == '(' or c == '[':
+            s.append(c)
+        else:
+            if len(s) == 0:
                 return False
-            if line[i] == ']' and line [i - 1] == '(':
-                return False
-
-        if a < 0 or b < 0:
+            t = s.pop()
+            if t == '(' and c == ')':
+                continue
+            if t == '[' and c == ']':
+                continue
             return False
-    return a == 0 and b == 0
+    return True
+
+
 
 line = "[(])"
 res = check_line(line)
