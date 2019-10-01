@@ -11,10 +11,12 @@ Task - maximize amount of money.
 
 #not a canonical algorythm; In canonical they sort deadline in descending order
 def schedule(deadline, price):
-    out = [0] * len(deadline)
-    for i in range(len(out)):
-        p = price[i]
-        d = deadline[i]
+    dp = zip(deadline, price)
+    dp.sort(key=lambda x: x[1], reverse=True)
+
+    out = [0] * len(dp)
+    for i in range(len(dp)):
+        d, p = dp[i]
         for j in range(d - 1, -1, -1):
             if out[j] == 0:
                 out[j] = p
@@ -22,7 +24,7 @@ def schedule(deadline, price):
             else:
                 out[j] = max(out[j], p)
 
-    print(out, ' ', sum(out))
+    print(sum(out))
 
 deadline = [1,2,2,3,5]
 price    = [2,5,4,1,3]
@@ -38,4 +40,5 @@ with open("schedule.txt", 'r') as f:
         line = f.readline()
         if line:
             deadline[i], price[i] = [int(v) for v in line.split(' ')]
+
 schedule(deadline=deadline, price=price)
