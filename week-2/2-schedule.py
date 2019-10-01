@@ -24,4 +24,18 @@ def schedule(deadline, price):
 
     print(out, ' ', sum(out))
 
-schedule(deadline=[1,2,2,3,5], price=[2,5,4,1,3])
+deadline = [1,2,2,3,5]
+price    = [2,5,4,1,3]
+deadline = [2,2,1,7,5,5,4,7,7,5]
+price    = [92,80,66,55,55,38,35,19,16,2]
+
+with open("schedule.txt", 'r') as f:
+    n = int(f.readline())
+    print(n)
+    deadline = [0] * n
+    price    = [0] * n
+    for i in range(n):
+        line = f.readline()
+        if line:
+            deadline[i], price[i] = [int(v) for v in line.split(' ')]
+schedule(deadline=deadline, price=price)
