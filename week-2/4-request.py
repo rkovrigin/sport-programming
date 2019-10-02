@@ -19,7 +19,7 @@ with open("request2.in", 'r') as f:
     n = int(f.readline())
     print(n)
     left = [0] * n
-    right    = [0] * n
+    right = [0] * n
     for i in range(n):
         line = f.readline()
         if line:
