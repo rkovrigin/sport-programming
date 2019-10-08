@@ -3,10 +3,10 @@ def path(p, n, m, way):
         print(''.join(way))
         return
     if p[n][m] == 1:
-        way.insert(0, 'r')
+        way.insert(0, 'R')
         path(p, n, m-1, way)
     elif p[n][m] == 2:
-        way.insert(0, 'd')
+        way.insert(0, 'D')
         path(p, n-1, m, way)
     else:
         print(n, m)
@@ -46,4 +46,11 @@ a2 = [[1,4,1,2,3],
     [1,1,1,2,4],
     [2,5,1,7,1]]
 
-print(bug(a))
+bug_in = []
+with open('bug2.in', 'r') as f:
+    n, _ = [int(i) for i in f.readline().split()]
+    for i in range(n):
+        bug_in.append([int(i) for i in f.readline().split()])
+# print bug_in
+
+print(bug(bug_in))

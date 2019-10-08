@@ -9,8 +9,10 @@ def subsequence(a, b):
             d[i][j] = max(d[i-1][j], d[i][j-1])
             if a[i-1] == b[j-1]:
                 d[i][j] = max(d[i][j], d[i-1][j-1] + 1)
-    print(d)
+    # print(d)
+    for i in d:
+        print(i)
     print(d[n][m])
 
 
-subsequence([1,2,3,4,5], [1,3,5])
+subsequence([1,2,3], [1,3])

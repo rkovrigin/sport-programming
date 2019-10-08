@@ -19,4 +19,10 @@ def change(n, coins):
     # print(p)
     recout(n, p)
 
-change(488, [18,17])
+s = None
+c = None
+with open('change.in', 'r') as f:
+    _, s = [int(i) for i in f.readline().split()]
+    p = [int(i) for i in f.readline().split()]
+
+change(s, p)
