@@ -14,5 +14,9 @@ def subsequence(a, b):
         print(i)
     print(d[n][m])
 
-
-subsequence([1,2,3], [1,3])
+with open("seq2.in", 'r') as f:
+    f.readline()
+    a = [int(i) for i in f.readline().split()]
+    f.readline()
+    b = [int(i) for i in f.readline().split()]
+    subsequence(a, b)
