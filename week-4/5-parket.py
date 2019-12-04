@@ -30,24 +30,32 @@ def can(mask, new_mask):
     print(fm)
     return True
 
-def can2(mask1, mask2, n=0):
+def can2(mask1, mask2, max=0):
     if mask1 & mask2:
         return False
 
     mask = mask1 | mask2
-    # mask = 0b100011
-    max = len(bin(mask)) - 2
+    # print(f"MASK = {mask:0{max}b}")
+    # print(max)
+    # max = 4
     i = 0
     while i < max:
-        m = ((3 << i) & mask) >> i
-        print(f"{mask:0{max}b} {m:0{max}b} {m}")
+        # m = ((3 << i) & mask) >> i
+        m = (mask >> i) & 3
+        # print(f"{mask:0{max}b} -> {m:0{max}b} {m} i={i}")
         if m == 0 or m == 3:
+            if i == max - 1 and m == 0:
+                # print(f"return FALSE {mask:0{max}b}\n\n")
+                return False
             i += 2
         elif m == 1:
+            # if i == max - 1:
+            #     return False
             i += 1
         elif m == 2:
+            # print(f"return FALSE {mask:0{max}b}\n\n")
             return False
-
+    # print(f"return TRUE {mask:0{max}b}\n\n")
     return True
 
 
@@ -58,14 +66,15 @@ def parket(n, m, mod = 10):
     for i in range(m):
         for mask in range(1 << n):
             for new_mask in range(1 << n):
-                if can2(mask, new_mask):
+                if can2(mask, new_mask, n):
                     d[i + 1][new_mask] += d[i][mask] % mod
                     # d[i + 1][new_mask] %= mod
-    for i in d:
-        print(d)
+    # for i in d:
+    #     print(d)
     print(d[m][0])
 
-parket(2, 3, 10)
+# parket(2, 3, 10)
 # parket(5, 6, 1000000000)
+parket(6, 5000, 1000000000)
 # print(can2(0b010001, 0b100010))
-print(can2(0b0001, 0b1010))
+# print(can2(0b1001, 0b0010, 4))
