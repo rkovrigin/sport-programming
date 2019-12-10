@@ -19,9 +19,9 @@ def check_line(line):
     return len(s) == 0
 
 iter = 1
-out = 20
+out = -1
 
-def rec(stack):
+def rec_(stack):
     global iter
     if len(stack) == 2 * n:
         if check_line(''.join(stack)):
@@ -58,5 +58,31 @@ def rec(stack):
             stack.append(i)
             rec(stack)
             stack.pop()
+# rec2([])
 
-rec([])
+
+def rec(stack, out, idx):
+    if idx == n * 2:
+        print(out)
+        return
+    for c in "()[]":
+        if len(stack) == 0:
+            if c == '(' or c == '[':
+                stack.append(c)
+            elif c == ')' or c == ']':
+                break
+        elif out[idx] == '[' and c == ')':
+            break
+        elif out[idx] == '(' and c == ']':
+            break
+        elif stack[-1] == '(' and c == ')':
+            out[idx] = ')'
+            out[len(stack)] = '('
+            stack.pop()
+        elif stack[-1] == '[' and c == ']':
+            out[idx] = ']'
+            out[idx-1]   d = '['
+            stack.pop()
+        rec(stack, out, idx + 1)
+
+rec([], a, 0)

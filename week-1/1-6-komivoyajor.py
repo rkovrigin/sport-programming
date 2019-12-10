@@ -1,9 +1,10 @@
 n = 10
 a = []
-# a = [[0,1,4,6],
-#      [1,0,5,2],
-#      [4,5,0,3],
-#      [6,2,3,0],]
+a = [[0,1,4,6],
+     [1,0,5,2],
+     [4,5,0,3],
+     [6,2,3,0],]
+n = 4
 # 0  41 67  0 78  5 91  4 18 67
 # 41  0 34 69 58 45 95  2 95 99
 # 67 34  0 24 62 81 42 53 47 35
@@ -43,14 +44,14 @@ def rec(idx, len):
 def main():
     global a
 
-    with open("1-week-input-test2-task4", 'r') as f:
-        o = f.read()
-        o = o.split('\n')
-        print(o)
-        a = []
-        for line in o[1:]:
-            if len(line) > 0:
-                a.append([int(i) for i in line.split(' ')])
+    # with open("1-week-input-test2-task4", 'r') as f:
+    #     o = f.read()
+    #     o = o.split('\n')
+    #     print(o)
+    #     a = []
+    #     for line in o[1:]:
+    #         if len(line) > 0:
+    #             a.append([int(i) for i in line.split(' ')])
     # print(a)
 
     p[0] = 0

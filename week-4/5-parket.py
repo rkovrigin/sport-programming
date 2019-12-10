@@ -9,13 +9,11 @@ def can(mask, new_mask):
     # print (_new_mask)
     if mask & new_mask:
         return False
-    full_mask = mask | new_mask
-    fm = [int (i) for i in bin(full_mask)[2:]]
-    tmp = 1
-
-    for i in range(len(fm)):
-        if tmp == 1:
-            if fm[i] == 0:
+    for i in range(len(_mask)):
+        if tmp == 0: 
+            if _mask[i] | _new_mask[i] == 0:
+                tmp = 1
+            else:
                 tmp = 0
             else:
                 tmp = 1
@@ -61,7 +59,7 @@ def can2(mask1, mask2, max=0):
 
 def parket(n, m, mod = 10):
     d = [[0] * (1 << n) for i in range(m + 1)]
-    # print (d)
+
     d[0][0] = 1
     for i in range(m):
         for mask in range(1 << n):

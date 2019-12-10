@@ -1,14 +1,14 @@
-n = 7
+n = 10
 a = [0] * n
 used = [False] * n
 
 index = 1
-out_index = 4468
+out_index = -1
 
 def rec(idx):
     global index
     if idx == n:
-        if index == out_index:
+        if index == out_index or out_index == -1:
             print(a)
         index += 1
         return

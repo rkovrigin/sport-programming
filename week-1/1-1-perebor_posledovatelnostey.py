@@ -1,5 +1,5 @@
-n = 6
-m = 4
+n = 7
+m = 5
 out_index = -1
 a = [0] * n
 index = 1
